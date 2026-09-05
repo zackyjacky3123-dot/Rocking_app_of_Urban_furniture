@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Loader2 } from 'lucide-react'
 
 export default function Drawer({ isOpen, onClose, title, children, onSubmit, submitting = false }) {
   return (
@@ -13,7 +13,7 @@ export default function Drawer({ isOpen, onClose, title, children, onSubmit, sub
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/55 backdrop-blur-md z-40"
           />
 
           {/* Panel */}
@@ -26,20 +26,23 @@ export default function Drawer({ isOpen, onClose, title, children, onSubmit, sub
             className="
               fixed right-0 top-0 h-full w-full max-w-md z-50
               flex flex-col
-              bg-white dark:bg-gray-900
-              border-l border-gray-200 dark:border-gray-800
-              shadow-2xl
+              glass-deep
+              border-l border-white/10
+              shadow-2xl shadow-black/40
             "
           >
+            {/* Gradient hairline on the leading edge */}
+            <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/60 via-violet-500/40 to-transparent" />
+
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200 dark:border-gray-800">
+            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200/60 dark:border-white/[0.07]">
               <div>
-                <div className="h-0.5 w-8 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full mb-2" />
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white">{title}</h2>
+                <div className="h-0.5 w-9 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full mb-2.5 shadow-glow-cyan" />
+                <h2 className="font-display text-lg font-bold text-gray-900 dark:text-white">{title}</h2>
               </div>
               <button
                 onClick={onClose}
-                className="p-2 rounded-xl text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="p-2 rounded-xl text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -51,14 +54,14 @@ export default function Drawer({ isOpen, onClose, title, children, onSubmit, sub
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-5 border-t border-gray-200 dark:border-gray-800 flex gap-3">
+            <div className="px-6 py-5 border-t border-gray-200/60 dark:border-white/[0.07] flex gap-3">
               <button
                 onClick={onClose}
                 className="
                   flex-1 px-4 py-2.5 rounded-xl font-medium text-sm
-                  border border-gray-200 dark:border-gray-700
+                  border border-gray-200 dark:border-white/10
                   text-gray-600 dark:text-gray-300
-                  hover:bg-gray-50 dark:hover:bg-gray-800
+                  hover:bg-gray-900/5 dark:hover:bg-white/[0.07]
                   transition-colors
                 "
               >
@@ -68,14 +71,17 @@ export default function Drawer({ isOpen, onClose, title, children, onSubmit, sub
                 onClick={onSubmit}
                 disabled={submitting}
                 className="
-                  flex-1 px-4 py-2.5 rounded-xl font-semibold text-sm text-white
-                  bg-gradient-to-r from-cyan-500 to-violet-600
-                  hover:from-cyan-400 hover:to-violet-500
+                  shine flex-1 px-4 py-2.5 rounded-xl font-semibold text-sm text-white
+                  bg-gradient-to-r from-cyan-500 via-indigo-500 to-violet-600 bg-[length:150%_100%] hover:bg-[position:100%_0]
                   disabled:opacity-60 disabled:cursor-not-allowed
-                  transition-all duration-200 shadow-lg shadow-violet-500/20
+                  transition-all duration-300 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40
                 "
               >
-                {submitting ? 'Saving...' : 'Save'}
+                {submitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" /> Saving…
+                  </span>
+                ) : 'Save'}
               </button>
             </div>
           </motion.div>
