@@ -1,0 +1,50 @@
+# Running this project locally
+
+## 1. Backend (FastAPI + PostgreSQL)
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate          # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+cp .env.example .env              # then edit .env with your real DB credentials
+uvicorn app.main:app --reload --port 8000
+```
+
+- API root: http://localhost:8000
+- DB connectivity check: http://localhost:8000/db-test
+- Interactive docs: http://localhost:8000/docs
+- Tables are created automatically on startup (see `on_startup` in `main.py`).
+  There's no Alembic migration setup — if you change a model later, you'll
+  need to add migrations or drop/recreate tables yourself.
+
+## 2. Frontend (frontend-vanilla)
+
+Pure static HTML/CSS/JS — no build step.
+
+```bash
+cd frontend-vanilla
+python3 -m http.server 5500
+# open http://localhost:5500
+```
+
+The backend's CORS config already allows `http://localhost:5500` (and, via a
+regex fallback, any other `localhost`/`127.0.0.1` port) so you can pick a
+different port if 5500 is busy.
+
+If your API isn't running at `http://localhost:8000`, set this in the
+browser console before the page loads (or add it as an inline `<script>`
+in `index.html` before `app.js`):
+
+```js
+window.API_BASE_URL = 'http://your-api-host:port';
+```
+
+## 3. Quick sanity check
+
+1. Start the backend, confirm `/db-test` returns `{"database": "connected", ...}`.
+2. Start frontend-vanilla, open it in the browser.
+3. Go to **Accounts** and add one (e.g. "Cash", type `ASSET`) — you'll need
+   at least one account before you can create a **Journal**.
+4. Add a few **Contacts** and **Products** to see the card views populate.

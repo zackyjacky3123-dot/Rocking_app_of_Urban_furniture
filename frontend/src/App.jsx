@@ -1,0 +1,26 @@
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Toaster } from 'react-hot-toast'
+import Layout from './components/Layout'
+import CommandPalette from './components/CommandPalette'
+import { useAuth } from './context/AuthContext'
+import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
+import Accounts from './pages/Accounts'
+import Contacts from './pages/Contacts'
+import Products from './pages/Products'
+import Journals from './pages/Journals'
+import Accounting from './pages/Accounting'
+import Sales from './pages/Sales'
+import Purchase from './pages/Purchase'
+import Payments from './pages/Payments'
+import Ledger from './pages/Ledger'
+import ProfitLoss from './pages/ProfitLoss'
+import BalanceSheet from './pages/BalanceSheet'
+import Budget from './pages/Budget'
+import BudgetReport from './pages/BudgetReport'
+import Users from './pages/Users'
+
+function Aurora(){return <div className="aurora" aria-hidden="true"><div className="aurora-blob aurora-1"/><div className="aurora-blob aurora-2"/><div className="aurora-blob aurora-3"/><div className="absolute inset-0 bg-grid opacity-40"/></div>}
+function Protected(){const {user}=useAuth();const location=useLocation();if(!user)return <Navigate to="/login" state={{from:location}} replace/>;return <Layout><AnimatePresence mode="wait"><motion.div key={location.pathname} initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}} transition={{duration:.2}}><Routes location={location}><Route path="/" element={<Dashboard/>}/><Route path="/contacts" element={<Contacts/>}/><Route path="/products" element={<Products/>}/><Route path="/sales" element={<Sales/>}/><Route path="/purchase" element={<Purchase/>}/><Route path="/payments" element={<Payments/>}/><Route path="/accounting" element={<Accounting/>}/><Route path="/accounts" element={<Accounts/>}/><Route path="/journals" element={<Journals/>}/><Route path="/journal-entries" element={<Accounting/>}/><Route path="/ledger" element={<Ledger/>}/><Route path="/profit-loss" element={<ProfitLoss/>}/><Route path="/balance-sheet" element={<BalanceSheet/>}/><Route path="/budget" element={<Budget/>}/><Route path="/budget-report" element={<BudgetReport/>}/><Route path="/users" element={<Users/>}/><Route path="*" element={<Navigate to="/" replace/>}/></Routes></motion.div></AnimatePresence></Layout>}
+export default function App(){const {user}=useAuth();return <div className="min-h-screen"><Aurora/>{user?<Protected/>:<Routes><Route path="/login" element={<Login/>}/><Route path="*" element={<Navigate to="/login" replace/>}/></Routes>}<CommandPalette/><Toaster position="top-right" toastOptions={{duration:3200,style:{borderRadius:'14px',background:'rgba(15,18,35,.95)',color:'#fff',border:'1px solid rgba(255,255,255,.1)'}}}/></div>}

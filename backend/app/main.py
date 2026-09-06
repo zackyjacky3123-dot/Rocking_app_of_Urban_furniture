@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
-from app.database import engine
+from app.database import Base, engine
 
 # Routes
 from app.routes.contacts import router as contacts_router
@@ -42,11 +42,33 @@ app.add_middleware(
         "http://127.0.0.1:5173",
         "http://localhost:5174",
         "http://127.0.0.1:5174",
+        # frontend-vanilla, served as a plain static site during development
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+        "http://localhost:8080",
+        "http://127.0.0.1:8080",
     ],
+    # Belt-and-suspenders for local dev: also allow any localhost/127.0.0.1
+    # port so you don't have to edit this file every time you pick a
+    # different `python -m http.server <port>` port for frontend-vanilla.
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# =====================================================
+# STARTUP: create tables if they don't exist yet
+# =====================================================
+# There is no Alembic migration setup in this project, so this is the
+# only thing that provisions the schema. It's additive/idempotent —
+# safe to run on every boot — but it will NOT alter existing tables if
+# a model changes later; for that you'd need real migrations.
+
+@app.on_event("startup")
+def on_startup():
+    Base.metadata.create_all(bind=engine)
 
 
 # =====================================================
