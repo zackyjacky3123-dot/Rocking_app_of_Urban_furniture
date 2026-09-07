@@ -156,7 +156,7 @@ Active status
 
 Products can then be reused throughout sales and purchase transactions.
 
-💰 Sales Management
+**💰 Sales Management**
 
 The Sales module manages the complete sales lifecycle.
 
@@ -183,7 +183,7 @@ Credit → Sales        ₹29,500
 The transaction is recorded using double-entry accounting.
 
 
-🛒 Purchase Management
+**🛒 Purchase Management**
 
 The Purchase module manages the complete purchasing lifecycle.
 
@@ -201,11 +201,13 @@ Vendor Payment
    ↓
 Journal Entry
 Example Purchase Entry
-Debit  → Purchase Expense   ₹20,000
-Credit → Creditors          ₹20,000
+Debit  → Purchase Expense  | ₹20,000
+Credit → Creditors         | ₹20,000
 Vendor Payment
-Debit  → Creditors          ₹20,000
-Credit → Bank / Cash        ₹20,000
+Debit  → Creditors        |  ₹20,000
+Credit → Bank / Cash      |  ₹20,000
+
+
 💳 Payment Management
 
 The Payment module supports:
