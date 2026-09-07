@@ -388,3 +388,40 @@ SALES	Sales workflows
 PURCHASE	Purchase workflows
 
 This provides a foundation for separating responsibilities between different departments.
+
+
+
+****🗂️ Project Structure****
+
+Urban_furniture_2026/
+│
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── routers/
+│   │   ├── services/
+│   │   └── ...
+│   │
+│   ├── requirements.txt
+│   ├── running_md
+│   └── seed_demo_data.py
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── utils.js
+│   │
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   └── vite.config.js
+│
+└── README.md
