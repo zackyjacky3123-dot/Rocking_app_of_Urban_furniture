@@ -392,7 +392,7 @@ This provides a foundation for separating responsibilities between different dep
 
 
 ****🗂️ Project Structure****
-
+```
 Urban_furniture_2026/
 │
 ├── backend/
@@ -425,3 +425,4 @@ Urban_furniture_2026/
 │   └── vite.config.js
 │
 └── README.md
+```
