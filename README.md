@@ -128,4 +128,56 @@ Supported Roles
 | SALES      | Sales-related operations         |
 | PURCHASE   | Purchase-related operations      |
 
+Administrators can manage users and activate or deactivate accounts.
 
+2. Contacts Management
+
+Manage customers and vendors from a centralized contact database.
+
+Contact Information
+Name
+Email
+Phone
+Address
+Contact type
+Active status
+
+3. Product Management
+
+Products can be created and managed centrally.
+
+Product Information
+Product name
+SKU
+Description
+Selling price
+Purchase price
+Active status
+
+Products can then be reused throughout sales and purchase transactions.
+
+💰 Sales Management
+
+The Sales module manages the complete sales lifecycle.
+
+Customer
+   ->
+Sales Order
+   ->
+Customer Invoice
+   ->
+Customer Payment
+   ->
+Journal Entry
+   ->
+Ledger
+   ->
+Financial Reports
+Example:-
+
+For a credit sale of ₹29,500:
+
+Debit  → Debtors      ₹29,500
+Credit → Sales        ₹29,500
+
+The transaction is recorded using double-entry accounting.
