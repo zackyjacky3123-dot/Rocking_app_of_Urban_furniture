@@ -298,11 +298,50 @@ example :-
 
 The Profit & Loss module calculates the financial performance of the business.
 
-Formula:- 
-Net Profit = Revenue - Expenses
-Revenue        ₹5,00,000
-Expenses      -₹3,20,000
--------------------------
-Net Profit     ₹1,80,000
+Formula:-  Net Profit = Revenue - Expenses Revenue      
 
 The report is derived from income and expense accounting transactions.
+
+**🏦 Balance Sheet**
+
+The Balance Sheet shows the financial position of the business.
+
+Accounting Equation
+Assets = Liabilities + Capital
+
+The report includes:
+
+Assets
+Cash
+Bank
+Debtors
+Other assets
+Liabilities
+Creditors
+Tax Payable
+Other liabilities
+Capital
+Owner Capital
+Current Period Profit
+
+The system also performs a balance check.
+
+**💵 Budget Management**
+
+The Budget module allows businesses to plan financial activity.
+
+Features include:
+
+Budget creation
+Budget lines
+Account-level allocation
+Budget activation
+Budget closing
+Budget monitoring
+
+| Account        |     Budget |
+| -------------- | ---------: |
+| Sales          | ₹10,00,000 |
+| Marketing      |  ₹1,50,000 |
+| Operations     |  ₹3,00,000 |
+| Administration |  ₹2,00,000 |
