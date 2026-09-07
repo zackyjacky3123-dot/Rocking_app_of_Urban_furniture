@@ -345,3 +345,44 @@ Budget monitoring
 | Marketing      |  ₹1,50,000 |
 | Operations     |  ₹3,00,000 |
 | Administration |  ₹2,00,000 |
+
+
+
+**📊 Dashboard & Analytics**
+
+The Dashboard provides a centralized overview of business performance.
+
+Key Metrics
+Total Sales
+Total Purchases
+Total Payments
+Receivables
+Payables
+Cash
+Bank Balance
+Revenue
+Expenses
+Net Profit
+Operational Metrics
+Contacts
+Products
+Sales Orders
+Purchase Orders
+Invoices
+Bills
+Payments
+Users
+
+Charts and visualizations are implemented using Recharts.
+
+**🔐 Role-Based Access**
+
+The application supports multiple user roles.
+
+Role	Access Area
+ADMIN	Full system
+ACCOUNTANT	Accounting and financial operations
+SALES	Sales workflows
+PURCHASE	Purchase workflows
+
+This provides a foundation for separating responsibilities between different departments.
