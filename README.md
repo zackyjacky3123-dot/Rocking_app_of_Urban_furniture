@@ -181,3 +181,69 @@ Debit  → Debtors      ₹29,500
 Credit → Sales        ₹29,500
 
 The transaction is recorded using double-entry accounting.
+
+
+🛒 Purchase Management
+
+The Purchase module manages the complete purchasing lifecycle.
+
+Vendor
+   ↓
+Purchase Order
+   ↓
+Confirmation
+   ↓
+Goods Receipt
+   ↓
+Vendor Bill
+   ↓
+Vendor Payment
+   ↓
+Journal Entry
+Example Purchase Entry
+Debit  → Purchase Expense   ₹20,000
+Credit → Creditors          ₹20,000
+Vendor Payment
+Debit  → Creditors          ₹20,000
+Credit → Bank / Cash        ₹20,000
+💳 Payment Management
+
+The Payment module supports:
+
+Customer payments
+Vendor payments
+Cash payments
+Bank payments
+Partial payments
+Payment validation
+Overpayment protection
+
+
+Customer Payment:- 
+
+Debit  → Bank / Cash
+Credit → Debtors
+Vendor Payment
+Debit  → Creditors
+Credit → Bank / Cash
+
+Payments are linked to invoices or vendor bills to maintain a complete accounting trail.
+
+📒 Double-Entry Accounting
+
+The accounting engine follows the fundamental rule:
+
+Total Debit = Total Credit
+
+Every financial transaction must remain balanced.
+
+Example
+
+| Account   |       Debit |      Credit |
+| --------- | ----------: | ----------: |
+| Debtors   |     ₹10,000 |             |
+| Sales     |             |     ₹10,000 |
+| **Total** | **₹10,000** | **₹10,000** |
+
+
+The system validates journal entries to help prevent unbalanced accounting transactions.
