@@ -247,3 +247,62 @@ Example
 
 
 The system validates journal entries to help prevent unbalanced accounting transactions.
+
+**🧾 Chart of Accounts**
+
+The system supports accounts belonging to:
+
+Assets
+Liabilities
+Income
+Expenses
+Capital
+
+
+Example Accounts
+
+| Account          | Type      |
+| ---------------- | --------- |
+| Cash             | Asset     |
+| Bank             | Asset     |
+| Debtors          | Asset     |
+| Creditors        | Liability |
+| Sales            | Income    |
+| Purchase Expense | Expense   |
+| Owner Capital    | Capital   |
+| Tax Payable      | Liability |
+
+
+**📖 Ledger**
+
+The Ledger module provides account-wise transaction history.
+
+It supports:
+
+Account selection
+Date filtering
+Debit and credit values
+Running balance
+Transaction references
+
+example :- 
+
+| Date     | Description      |   Debit |  Credit | Balance |
+| -------- | ---------------- | ------: | ------: | ------: |
+| 01/09/26 | Opening Balance  |         |         | ₹50,000 |
+| 02/09/26 | Customer Payment | ₹10,000 |         | ₹60,000 |
+| 03/09/26 | Purchase         |         | ₹20,000 | ₹40,000 |
+
+
+**📊 Profit & Loss**
+
+The Profit & Loss module calculates the financial performance of the business.
+
+Formula:- 
+Net Profit = Revenue - Expenses
+Revenue        ₹5,00,000
+Expenses      -₹3,20,000
+-------------------------
+Net Profit     ₹1,80,000
+
+The report is derived from income and expense accounting transactions.
