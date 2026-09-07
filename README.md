@@ -114,5 +114,18 @@ PostgreSQL
 
 Git & GitHub
 
+## ✨ Features
+1. Authentication & User Management
+
+The application supports user authentication and role-based user management.
+
+Supported Roles
+
+| Role       | Responsibility                   |
+| ---------- | -------------------------------- |
+| ADMIN      | Full system administration       |
+| ACCOUNTANT | Accounting, payments and reports |
+| SALES      | Sales-related operations         |
+| PURCHASE   | Purchase-related operations      |
 
 
